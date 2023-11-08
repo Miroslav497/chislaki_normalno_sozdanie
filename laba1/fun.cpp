@@ -90,7 +90,8 @@ double relative_error(const vector<double>& F, vector<vector<double>>& orig_mat,
     method_Gaus(orig_mat,N,M);
     otvet(orig_mat,N,M,F2);
 
-    double max_d, max_x = -10000;
+    double max_d = F2[0]-F[0];
+    double max_x = F[0];
     for(int i = 0;i < F2.size();i++){
         if(max_d<abs(F2[i]-F[i])){
             max_d = abs(F2[i]-F[i]);
