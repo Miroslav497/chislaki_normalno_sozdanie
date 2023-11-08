@@ -3,7 +3,6 @@
 #include <iomanip>
 #include <vector>
 #include <iostream>
-// #include "fun.h"
 using namespace std;
 
 void Swap(const int &line1, const int &line2, vector<vector<double>>& a);
