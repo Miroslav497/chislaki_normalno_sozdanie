@@ -22,12 +22,12 @@ int main() {
 
     print(matrix, N, M);
 
-    method_Gaus(matrix,N,M);
+    method_Gaus(matrix);
 
     print(matrix, N, M);
     vector<double> F(N);
     vector<double> F2(N);
-    otvet(matrix, N, M, F);
+    otvet(matrix, F);
 
     for (int i = 0; i < F.size(); i++){
         cout << "x" << i + 1 << ": " << F[i] << endl;
@@ -35,5 +35,5 @@ int main() {
 
     cout<<"Норма вектора невязки:"<<vector_n(F,orig_mat,B2,B,Br,N)<<endl;
     print_vec(Br);
-    cout<<"относительная погрешность:"<<relative_error(F,orig_mat,B2,F2,N,M)<<endl;
+    cout<<"относительная погрешность:"<<relative_error(F,orig_mat,B2,F2)<<endl;
 }
