@@ -1,11 +1,8 @@
 #include <iostream>
 #include <iomanip>
 #include <vector>
-
 #include "fun.h"
 using namespace std;
-
-
 
 int main() {
     const int N = 3, M = 4;
