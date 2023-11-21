@@ -3,6 +3,7 @@
 #include <iomanip>
 #include <vector>
 #include <iostream>
+#include <cmath>
 using namespace std;
 
 /*void Swap(const int &line1, const int &line2, vector<vector<double>>& a);
@@ -81,9 +82,7 @@ void otvet(const vector<vector<double>>& matrix, vector<double>& F) {
         }
         F[i] = sum / matrix[i][i];
     }
-    /*for (int i = 0; i < N; i++) {
-        cout << "x" << i + 1 << ": " << F[i] << endl;
-    }*/
+    
 }
 
 double vector_n(const vector<double>& F, const vector<vector<double>>& orig_mat, vector<double>& B2,vector<double>& B,vector<double>& Br,const int N) {
@@ -112,12 +111,8 @@ double relative_error(const vector<double>& F, vector<vector<double>>& orig_mat,
     double max_d = abs(F2[0]-F[0]);
     double max_x = abs(F[0]);
     for(int i = 1;i < F2.size();i++){
-        if(max_d<abs(F2[i]-F[i])){
-            max_d = abs(F2[i]-F[i]);
-        }
-        if(max_x < abs(F[i])){
-            max_x = abs(F[i]);
-        }
+        max_d = max(max_d,abs(F2[i]-F[i]));
+        max_x =  max(max_x,abs(F[i]));
     }
     return max_d/max_x;
 }
