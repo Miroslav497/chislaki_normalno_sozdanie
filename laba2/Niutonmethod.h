@@ -5,11 +5,11 @@
 #include <cmath>
 
 double function1(const double& x1, const double& x2) {
-    return x1 - x2 - 6*log(x1) - 1;
+    return x1 - x2 - 6*log10(x1) - 1;
 }
 
 double function2(const double& x1, const double& x2) {
-    return x1 - 3*x2 - 6*log(x2)-2;
+    return x1 - 3*x2 - 6*log10(x2)-2;
 }
 
 double getD1(const vector<double>& x) {
