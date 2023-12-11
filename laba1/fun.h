@@ -6,21 +6,8 @@
 #include <cmath>
 using namespace std;
 
-/*void Swap(const int &line1, const int &line2, vector<vector<double>>& a);
-
-void method_Gaus(vector<vector<double>>& matrix, int N, int M);
-void print(const vector<vector<double>>& matrix, int N, int M);
-void print_vec(const vector<double>& vec);
-void otvet(const vector<vector<double>>& matrix, int N, int M, vector<double>& F);
-double vector_n(const vector<double>& F, const vector<vector<double>>& orig_mat, vector<double>& B2,vector<double>& B,vector<double>& Br,const int N);
-double relative_error(const vector<double>& F, vector<vector<double>>& orig_mat, vector<double>& B2,vector<double>& F2,const int N,const int M);*/
-//#include "fun.h"
-
-
 void Swap(const int &line1, const int &line2, vector<vector<double>>& a) {
-    vector<double> tmp = a[line1];
-    a[line1] = a[line2];
-    a[line2] = tmp;
+    swap(a[line1], a[line2]);
 }
 
 void method_Gaus(vector<vector<double>>& matrix){
@@ -94,9 +81,10 @@ double vector_n(const vector<double>& F, const vector<vector<double>>& orig_mat,
         B2[i] = sum;
         Br[i] = B[i]-B2[i];
     }
-    double norma = Br[0];
-    for(int i = 0;i < Br.size();i++){
-        if(norma<abs(Br[i]))norma = Br[i];
+
+    double norma = abs(Br[0]);
+    for (const auto& v :Br) {
+        norma = abs(v) > norma ? abs(v) : norma;
     }
     return norma;
 }
