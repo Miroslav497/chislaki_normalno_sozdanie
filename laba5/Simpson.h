@@ -1,4 +1,5 @@
 #pragma once;
+#include <cmath>
 
 double Simpson(double a, double b, double fun(double),double e){
     int N = 2;

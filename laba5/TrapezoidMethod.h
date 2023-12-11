@@ -16,7 +16,7 @@ double TrapezoidMethod(double a,double b,double fun(double),double e){
         h = (b - a) / N;
         xi = a;
         sum = 0;
-        for (int i = 0; i < N; i++) {
+        for (int i = 0; i < N-1; i++) {
             xi += h;
             sum += fun(xi);
         }
