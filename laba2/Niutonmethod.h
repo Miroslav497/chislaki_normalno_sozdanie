@@ -15,7 +15,11 @@ double function2(const double& x1, const double& x2) {
 double getD1(const vector<double>& x) {
     double f1 = function1(x[0], x[1]);
     double f2 = function2(x[0], x[1]);
-    return (abs(f1)> abs(f2)? abs(f1): abs(f2));//max znach f1 ili f2
+    if(abs(f1)> abs(f2)){
+        return abs(f1);
+    }else{
+        return abs(f2);
+    }
 }
 
 double getD2(const vector<double>& x, const vector<double>& xKplus1) {
@@ -35,7 +39,7 @@ double getD2(const vector<double>& x, const vector<double>& xKplus1) {
 
 
 double J1Dx01(const double& x1, const double& x2) {
-    return 1 - 6/x1;
+    return 1 - 6/(x1*log(10));
 }
 
 double J1Dx02(const double& x1, const double& x2) {
@@ -45,9 +49,9 @@ double J1Dx02(const double& x1, const double& x2) {
 double J2Dx01(const double& x1, const double& x2) {
     return 1;
 }
-
+ 
 double J2Dx02(const double& x1, const double& x2) {
-    return -3 - 6/x2;
+    return -3 - 6/(x2*log(10));
 }
 
 void jakobianMethod1(vector<vector<double>>& matrix, const vector<double>& x) {
@@ -58,8 +62,8 @@ void jakobianMethod1(vector<vector<double>>& matrix, const vector<double>& x) {
 }
 
 void jakobianMethod2(vector<vector<double>>& matrix, const vector<double>& x, const double& M) {
-    matrix[0][0] = (function1(x[0] + M * x[0], x[1]) - function1(x[0], x[1])) / M * x[0];
-    matrix[0][1] = (function1(x[0], x[1] + M * x[1]) - function1(x[0], x[1])) / M * x[1];
-    matrix[1][0] = (function2(x[0] + M * x[0], x[1]) - function2(x[0], x[1])) / M * x[0];
-    matrix[1][1] = (function2(x[0], x[1] + M * x[1]) - function2(x[0], x[1])) / M * x[1];
+    matrix[0][0] = (function1(x[0] + M * x[0], x[1]) - function1(x[0], x[1])) / (M * x[0]);
+    matrix[0][1] = (function1(x[0], x[1] + M * x[1]) - function1(x[0], x[1])) / (M * x[1]);
+    matrix[1][0] = (function2(x[0] + M * x[0], x[1]) - function2(x[0], x[1])) / (M * x[0]);
+    matrix[1][1] = (function2(x[0], x[1] + M * x[1]) - function2(x[0], x[1])) / (M * x[1]);
 }

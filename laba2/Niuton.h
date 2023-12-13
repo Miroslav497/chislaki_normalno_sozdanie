@@ -14,7 +14,7 @@ void NiutonMethod(const double& MParametr) {
     x.push_back(0.2);
     vector<double> xKplus1(x);
     int k = 1;
-    int NIT = 100;
+    int NIT = 200;
     int N = 2;
     int M = 3;
     vector<vector<double>> matrix(N, vector<double>(M));
